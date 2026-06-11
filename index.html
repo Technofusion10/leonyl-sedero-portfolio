@@ -145,65 +145,84 @@
 
     <!-- Projects Section -->
     <section id="programs" class="py-20">
-        <div class="container mx-auto px-6">
+    <div class="container mx-auto px-6">
 
-            <h2 class="text-4xl font-bold text-center mb-10">
-                Training Programs
-            </h2>
+        <h2 class="text-4xl font-bold text-center mb-10">
+            Training Programs
+        </h2>
 
-            <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-3 gap-8">
 
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                    <img src="fitness-program.png"
-                        alt="Weight Loss Program"
-                        class="w-full h-64 object-cover">
 
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">
-                            Weight Loss Program
-                        </h3>
-                        <p>
-                            Customized workout and nutrition plans designed to help clients lose fat safely and effectively.
-                        </p>
-                    </div>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <img onclick="openImage(this.src)"
+                     src="fitness-program.png"
+                     class="w-full h-64 object-cover cursor-pointer hover:scale-105 transition duration-300">
+
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">
+                        Weight Loss Program
+                    </h3>
+
+                    <p>
+                        Customized workout and nutrition plans designed to help clients lose fat safely and effectively.
+                    </p>
                 </div>
-
-
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                    <img src="muscle.png"
-                        alt="Muscle Gain Program"
-                        class="w-full h-64 object-cover">
-
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">
-                            Muscle Building Program
-                        </h3>
-                        <p>
-                            Strength and hypertrophy training plans for building muscle and improving physique.
-                        </p>
-                    </div>
-                </div>
-
-
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                    <img src="1on1.png"
-                        alt="Personal Training"
-                        class="w-full h-64 object-cover">
-
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">
-                            Personal Coaching
-                        </h3>
-                        <p>
-                            One-on-one coaching sessions focused on individual fitness goals and performance.
-                        </p>
-                    </div>
-                </div>
-
-
             </div>
+
+
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <img onclick="openImage(this.src)"
+                     src="muscle.png"
+                     class="w-full h-64 object-cover cursor-pointer hover:scale-105 transition duration-300">
+
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">
+                        Muscle Building Program
+                    </h3>
+
+                    <p>
+                        Strength and hypertrophy training plans for building muscle and improving physique.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <img onclick="openImage(this.src)"
+                     src="1on1.png"
+                     class="w-full h-64 object-cover cursor-pointer hover:scale-105 transition duration-300">
+
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">
+                        Personal Coaching
+                    </h3>
+
+                    <p>
+                        One-on-one coaching sessions focused on individual fitness goals and performance.
+                    </p>
+                </div>
+            </div>
+
+
         </div>
+    </div>
     </section>
+
+
+    <!-- Image Modal -->
+    <div id="imageModal"
+        class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+
+        <button onclick="closeImage()"
+            class="absolute top-5 right-8 text-white text-4xl">
+            &times;
+        </button>
+
+        <img id="fullImage"
+            class="max-w-full max-h-full rounded-lg shadow-2xl">
+
+    </div>
 
     <!-- Contact Section -->
     <section id="contact" class="relative py-20 overflow-hidden">
