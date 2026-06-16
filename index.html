@@ -150,7 +150,7 @@
     </section>
 
     <!-- Skills Section -->
-    <<section id="skills" class="py-20 bg-gray-200">
+    <section id="skills" class="py-20 bg-gray-200">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center mb-10">My Expertise</h2>
 
@@ -186,84 +186,153 @@
 
     <!-- Projects Section -->
     <section id="programs" class="py-20">
-    <div class="container mx-auto px-6">
+        <div class="container mx-auto px-6">
 
-        <h2 class="text-4xl font-bold text-center mb-10">
-            Training Programs
-        </h2>
+            <h2 class="text-4xl font-bold text-center mb-10">
+                Training Programs
+            </h2>
 
-        <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-8">
 
+                <!-- 1st -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img
+                        src="fitness-program.png"
+                        onclick="openImage(this.src)"
+                        class="w-full h-64 object-cover cursor-pointer hover:scale-105 transition">
 
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                <img onclick="openImage(this.src)"
-                     src="fitness-program.png"
-                     class="w-full h-64 object-cover cursor-pointer hover:scale-105 transition duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">
+                            Weight Loss Program
+                        </h3>
 
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">
-                        Weight Loss Program
-                    </h3>
-
-                    <p>
-                        Customized workout and nutrition plans designed to help clients lose fat safely and effectively.
-                    </p>
+                        <p>
+                            Customized workout and nutrition plans.
+                        </p>
+                    </div>
                 </div>
-            </div>
 
+                <!-- 2nd -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img
+                        src="muscle.png"
+                        onclick="openImage(this.src)"
+                        class="w-full h-64 object-cover cursor-pointer hover:scale-105 transition">
 
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                <img onclick="openImage(this.src)"
-                     src="muscle.png"
-                     class="w-full h-64 object-cover cursor-pointer hover:scale-105 transition duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">
+                            Muscle Building Program
+                        </h3>
 
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">
-                        Muscle Building Program
-                    </h3>
-
-                    <p>
-                        Strength and hypertrophy training plans for building muscle and improving physique.
-                    </p>
+                        <p>
+                            Strength and hypertrophy training.
+                        </p>
+                    </div>
                 </div>
-            </div>
 
+                <!-- 3rd -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
 
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                <img onclick="openImage(this.src)"
-                     src="1on1.png"
-                     class="w-full h-64 object-cover cursor-pointer hover:scale-105 transition duration-300">
+                    <img
+                        id="sliderImage"
+                        src="1on1.png"
+                        onclick="openImage(this.src)"
+                        class="w-full h-64 object-cover cursor-pointer">
 
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">
-                        Personal Coaching
-                    </h3>
+                    <div class="flex justify-center gap-4 p-4">
+                        <button
+                            onclick="prevImage()"
+                            class="bg-gray-700 text-sm text-white px-4 py-2 rounded">
+                            Prev
+                        </button>
 
-                    <p>
-                        One-on-one coaching sessions focused on individual fitness goals and performance.
-                    </p>
+                        <button
+                            onclick="nextImage()"
+                            class="bg-blue-600 text-sm text-white px-4 py-2 rounded">
+                            Next
+                        </button>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">
+                            Personal Coaching
+                        </h3>
+
+                        <p>
+                            One-on-one coaching sessions.
+                        </p>
+                    </div>
+
                 </div>
+
             </div>
-
-
         </div>
-    </div>
     </section>
 
 
-    <!-- Image Modal -->
-    <div id="imageModal"
-        class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+    <!-- FULL SCREEN IMAGE -->
+    <div
+        id="imageModal"
+        class="hidden fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+        onclick="closeImage()">
 
-        <button onclick="closeImage()"
-            class="absolute top-5 right-8 text-white text-4xl">
-            &times;
-        </button>
-
-        <img id="fullImage"
-            class="max-w-full max-h-full rounded-lg shadow-2xl">
+        <img
+            id="fullImage"
+            class="max-w-[90%] max-h-[90%] rounded">
 
     </div>
+
+    <!-- full image script -->
+    <script>
+
+    const images = [
+        "1on1.png",
+        "1on1-1.png",
+        "1on1-2.png",
+        "1on1-3.png"
+    ];
+
+    let current = 0;
+
+    function nextImage() {
+        current++;
+
+        if (current >= images.length) {
+            current = 0;
+        }
+
+        document.getElementById("sliderImage").src =
+            images[current];
+    }
+
+    function prevImage() {
+        current--;
+
+        if (current < 0) {
+            current = images.length - 1;
+        }
+
+        document.getElementById("sliderImage").src =
+            images[current];
+    }
+
+
+    // FULL SIZE VIEW
+    function openImage(src) {
+        document.getElementById("fullImage").src = src;
+
+        document
+            .getElementById("imageModal")
+            .classList.remove("hidden");
+    }
+
+    function closeImage() {
+        document
+            .getElementById("imageModal")
+            .classList.add("hidden");
+    }
+
+    </script>
 
     <!-- Contact Section -->
     <section id="contact" class="relative py-20 overflow-hidden">

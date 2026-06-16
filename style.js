@@ -34,22 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //image modal
 
-function openImage(image){
 
-    document.getElementById("fullImage").src = image;
-
-    document.getElementById("imageModal")
-    .classList.remove("hidden");
-
-}
-
-
-function closeImage(){
-
-    document.getElementById("imageModal")
-    .classList.add("hidden");
-
-}
 
 //responsive mobile
     const menuBtn = document.getElementById('menuBtn');
